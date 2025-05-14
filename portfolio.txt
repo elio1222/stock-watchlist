@@ -1,9 +1,9 @@
 symbol: SOUN shares: 21 avg_price: 19.15
 symbol: AMZN shares: 4 avg_price: 175.78
 symbol: RR shares: 600 avg_price: 2.47
-symbol: NVDA shares: 51 avg_price: 166.03
+symbol: NVDA shares: 51 avg_price: 116.03
 symbol: GOOGL shares: 5 avg_price: 154.11
 symbol: SNOW shares: 2 avg_price: 142.52
 symbol: OPTT shares: 300 avg_price: 0.93
 symbol: ARBE shares: 60 avg_price: 3.77
-symbol: VOO shares: 1.325 avg_price: 507.43
+symbol: VOO shares: 1.464 avg_price: 510.48

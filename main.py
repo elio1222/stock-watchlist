@@ -1,16 +1,22 @@
 from classes import stock
-import yfinance as yf
+import  yfinance as yf
 from io import StringIO
 import utils
 i = 0
 
 
 amzn = yf.Ticker("AMZN")
+'''
 for k, v in amzn.info.items():
     print(f"Key: {k} Value: {v}")
+    '''
 
-print(amzn.info['currentPrice'])
-
+amznytd = amzn.history(period = "ytd")['Open'].iloc[0]
+print(f"AMZN current price: ${amzn.info['currentPrice']}")
+print(f"AMZN YTD price: ${amznytd}")
+ytd = amzn.info['currentPrice'] - amznytd
+percent = round(((amzn.info['currentPrice'] / amznytd ) * 100) - 100, 2)
+print(f"YTD: {ytd} {percent}%")
 
 file_path = 'portfolio.txt'
 with open(file_path, 'r') as file:
@@ -23,6 +29,7 @@ buffer = []
 share = []
 j = 0
 stocks = []
+
 while size > j:
     if file_content[j].isalpha():
         buffer.append(file_content[j])
@@ -81,8 +88,7 @@ while size > j:
                     token = ""
                     j + 1
                     price = float(share[2])
-                    total = numofshares * price
-                    stocks.append(stock(share[0], float(share[1]), float(share[2]), total))
+                    stocks.append(stock(share[0], float(share[1]), float(share[2])))
                     share.clear()
     elif file_content[j] == " ":
         j = j + 1
@@ -90,10 +96,10 @@ while size > j:
         break
 
 # Displays the users portfolio
-'''
+
 for x in stocks:
-    print(f"Ticker: {x.get_symbol()} Shares: {x.get_shares()} Avg Cost: ${x.get_price()} Total: ${x.get_total()}")
-    '''
+    print(f"Ticker: {x.get_symbol()} Shares: {x.get_shares()} Avg Cost: ${x.get_price()}")
+
 
 '''
 i = yf.Ticker(stocks[0].get_symbol())
@@ -102,7 +108,8 @@ for k, v in i.info.items():
     print(f"{k}: {v}")
 '''
 # Provides a menu to see portfolio
-choice = utils.printmenu()
+userchoice = utils.printmenu()
+utils.choice(userchoice, stocks)
 
 
 
