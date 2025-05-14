@@ -6,4 +6,3 @@ symbol: GOOGL shares: 5 avg_price: 154.11
 symbol: SNOW shares: 2 avg_price: 142.52
 symbol: OPTT shares: 300 avg_price: 0.93
 symbol: ARBE shares: 60 avg_price: 3.77
-symbol: VOO shares: 1.464 avg_price: 510.48

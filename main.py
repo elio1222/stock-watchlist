@@ -10,14 +10,14 @@ amzn = yf.Ticker("AMZN")
 for k, v in amzn.info.items():
     print(f"Key: {k} Value: {v}")
     '''
-
+'''
 amznytd = amzn.history(period = "ytd")['Open'].iloc[0]
 print(f"AMZN current price: ${amzn.info['currentPrice']}")
 print(f"AMZN YTD price: ${amznytd}")
 ytd = amzn.info['currentPrice'] - amznytd
 percent = round(((amzn.info['currentPrice'] / amznytd ) * 100) - 100, 2)
 print(f"YTD: {ytd} {percent}%")
-
+'''
 file_path = 'portfolio.txt'
 with open(file_path, 'r') as file:
     file_content = file.read()
