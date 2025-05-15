@@ -4,12 +4,13 @@ from io import StringIO
 import utils
 i = 0
 
-
-amzn = yf.Ticker("AMZN")
 '''
+amzn = yf.Ticker("AMZN")
+
 for k, v in amzn.info.items():
     print(f"Key: {k} Value: {v}")
-    '''
+
+'''
 '''
 amznytd = amzn.history(period = "ytd")['Open'].iloc[0]
 print(f"AMZN current price: ${amzn.info['currentPrice']}")
@@ -97,9 +98,10 @@ while size > j:
 
 # Displays the users portfolio
 
+'''
 for x in stocks:
     print(f"Ticker: {x.get_symbol()} Shares: {x.get_shares()} Avg Cost: ${x.get_price()}")
-
+'''
 
 '''
 i = yf.Ticker(stocks[0].get_symbol())
@@ -110,12 +112,3 @@ for k, v in i.info.items():
 # Provides a menu to see portfolio
 userchoice = utils.printmenu()
 utils.choice(userchoice, stocks)
-
-
-
-
-
-
-
-
-
