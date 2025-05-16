@@ -110,5 +110,5 @@ for k, v in i.info.items():
     print(f"{k}: {v}")
 '''
 # Provides a menu to see portfolio
-userchoice = utils.printmenu()
-utils.choice(userchoice, stocks)
+# userchoice = utils.printmenu()
+utils.choice(stocks)

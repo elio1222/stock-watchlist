@@ -1,5 +1,5 @@
 class stock:
-    def __init__(self, symbol, shares, price):
+    def __init__(self, symbol, shares = 0, price = 0):
         self.symbol = symbol
         self.shares = shares
         self.price = price
