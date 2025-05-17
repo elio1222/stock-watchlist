@@ -1,8 +1,36 @@
 from classes import stock
-import  yfinance as yf
-from io import StringIO
-import utils
+from utils import home, investing, watchlist
+
 i = 0
+
+def printmenu():
+    choice = 0
+
+    while choice < 1 or choice > 4:
+        print("""
+Stock Watchlist Program.
+1. Home
+2. Investing
+3. Create a Watchlist
+4. Quit""")
+        choice = int(input("Enter a menu option: "))
+
+    return choice
+
+def choice(stocks):
+    quit = False
+    while not quit:
+        userchoice = printmenu()
+        match userchoice:
+            case 1:
+                home(stocks)
+            case 2:
+                investing(stocks)
+            case 3:
+                watchlist()
+            case 4:
+                quit = True
+                print("Quitting program...")
 
 '''
 amzn = yf.Ticker("AMZN")
@@ -19,10 +47,12 @@ ytd = amzn.info['currentPrice'] - amznytd
 percent = round(((amzn.info['currentPrice'] / amznytd ) * 100) - 100, 2)
 print(f"YTD: {ytd} {percent}%")
 '''
+# Reads portfolio text file into file_content
 file_path = 'portfolio.txt'
 with open(file_path, 'r') as file:
     file_content = file.read()
 
+# Removes all the new lines in order to properly read through the file
 file_content = file_content.replace('\n', ' ')
 size = len(file_content)
 # print(file_content)
@@ -111,4 +141,4 @@ for k, v in i.info.items():
 '''
 # Provides a menu to see portfolio
 # userchoice = utils.printmenu()
-utils.choice(stocks)
+choice(stocks)
